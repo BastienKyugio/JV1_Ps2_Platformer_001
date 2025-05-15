@@ -36,7 +36,7 @@ public class GameOverManager : MonoBehaviour
     }
     
 
-    public void QuitButttom()
+    public void QuitButton()
     {
         Application.Quit();
     }
