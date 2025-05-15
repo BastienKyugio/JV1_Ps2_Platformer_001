@@ -5,8 +5,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
 
-    [SerializeField]
-    BoxCollider2D monPersoSpawn;
+    public BoxCollider2D monPersoSpawn;
     public static Spawn instance;
         private void Awake()
     {

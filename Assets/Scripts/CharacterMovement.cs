@@ -17,6 +17,9 @@ public class CharacterMovement : MonoBehaviour
     private float horizontalMovement;
     public static CharacterMovement instance;
 
+    
+    public bool rangeWeaponPick = false;
+
 
     private void Awake()
     {

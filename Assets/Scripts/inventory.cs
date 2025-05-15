@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class Inventory : MonoBehaviour
 {
-    public int avocadoCount;
-    public Text avocadoCountText;
+    public int featherCount;
+    public Text featherCountText;
 
     public List<Item> content = new List<Item>();
     public int contentCurrentItem = 0;
@@ -66,13 +67,27 @@ public class Inventory : MonoBehaviour
         Item currentItem = content[contentCurrentItem];
         if (contentCurrentItem == 0)
         {
-            
+           //arme de melee
         }
 
         if (contentCurrentItem == 1)
         {
-            PlayerHealth.instance.HealPlayer(20);
+            //arme de distance;
             
         }
-    }   
+    }
+    public void AddFeathers(int count)
+    {
+        featherCount += count;
+        UdpateTextUI();
+    }
+    public void RemoveFeathers(int count)
+    {
+        featherCount -= count;
+        UdpateTextUI();
+    }
+    public void UdpateTextUI()
+    {
+        featherCountText.text = featherCount.ToString();
+    }
 }
