@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public Vector3 respawnPoint;
+
+    public GameObject perso;
     public static CurrentSceneManager instance;
 
     private void Awake()
@@ -15,7 +16,8 @@ public class CurrentSceneManager : MonoBehaviour
 
         instance = this;
 
-        respawnPoint = GameObject.FindGameObjectWithTag("player").transform.position;
+        GameObject.FindGameObjectWithTag("player").transform.position = transform.position;
+
     }
-   
+
 }

@@ -5,9 +5,11 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
 
-    public BoxCollider2D monPersoSpawn;
+    public GameObject monPersoSpawn;
+
     public static Spawn instance;
-        private void Awake()
+
+    private void Awake()
     {
         if (instance != null)
         {
@@ -19,6 +21,11 @@ public class Spawn : MonoBehaviour
 
 
     
-        monPersoSpawn.transform.position = gameObject.transform.position;
+        
     }
+    private void Start()
+    {
+        CharacterMovement.instance.playercollider.transform.position = gameObject.transform.position;
+    }
+
 }

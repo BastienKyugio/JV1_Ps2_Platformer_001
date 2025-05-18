@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
+    public GameObject spawn;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("player"))
         {
-            CurrentSceneManager.instance.respawnPoint = transform.position;
+            spawn.transform.position = transform.position;
             Destroy(gameObject);
         }
     }

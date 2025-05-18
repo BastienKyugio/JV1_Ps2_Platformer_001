@@ -15,10 +15,17 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public SpriteRenderer spriteRenderer;
     private float horizontalMovement;
+
+    //Bullet Variables
+    [SerializeField] private GameObject darts;
+    [SerializeField] private Transform firingPoint1;
+
+
+    [SerializeField] private float shootPos;
+    public bool rangeWeaponPick = false;
+
     public static CharacterMovement instance;
 
-    
-    public bool rangeWeaponPick = false;
 
 
     private void Awake()
@@ -34,15 +41,21 @@ public class CharacterMovement : MonoBehaviour
     {
 
 
-
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             isJumping = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick && isGrounded)
+        {
+            Shoot();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick &&  !isGrounded)
+        {
+            Grap();
+        }
 
 
         Flip(rb.velocity.x);
@@ -73,6 +86,17 @@ public class CharacterMovement : MonoBehaviour
 
 
     }
+    private void Shoot()
+    {
+        Instantiate(darts, firingPoint1.position, firingPoint1.rotation);
+    }
+    private void Grap()
+    {
+        //tirer une flechette, si elle touche une accroche alors le joueur est attiré jusque la-bas
+
+    }
+
+
     void Flip(float _velocity)
     {
         if (_velocity > 0.1f)

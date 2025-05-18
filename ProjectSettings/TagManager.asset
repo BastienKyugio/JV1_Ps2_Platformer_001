@@ -6,6 +6,11 @@ TagManager:
   tags:
   - player
   - FadeSystem
+  - canDestroy
+  - Ground
+  - Projectile
+  - projectiles
+  - Enemy
   layers:
   - Default
   - TransparentFX

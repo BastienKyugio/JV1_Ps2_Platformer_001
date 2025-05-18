@@ -18,6 +18,7 @@ public class GroundBreak : MonoBehaviour
     private IEnumerator Breaking()
     {
         yield return new WaitForSeconds(1.5f);
-        Destroy(objectToDestroy);
+        objectToDestroy.SetActive(false);
+        
     }
 }

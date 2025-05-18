@@ -14,7 +14,9 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer graphics;
     [SerializeField]
     public HealthBar healthBar;
-    public BoxCollider2D monPersoSpawn;
+    public CapsuleCollider2D monPersoSpawn;
+    public GameObject spawn;
+    public GameObject player;
 
 
     public static PlayerHealth instance;
@@ -94,7 +96,7 @@ public class PlayerHealth : MonoBehaviour
         CharacterMovement.instance.playercollider.enabled = true;
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth);
-        CharacterMovement.instance.playercollider.transform.position = CurrentSceneManager.instance.respawnPoint;
+        player.transform.position = spawn.transform.position;
     }
     public IEnumerator InvincibilityFlash()
     {
