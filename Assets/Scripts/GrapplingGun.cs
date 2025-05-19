@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Tutorial_GrapplingGun : MonoBehaviour
+public class GrapplingGun : MonoBehaviour
 {
     [Header("Scripts Ref:")]
-    public Tutorial_GrapplingRope grappleRope;
+    public GrapplingRope grappleRope;
 
     [Header("Layers Settings:")]
     [SerializeField] private bool grappleToAll = false;
-    [SerializeField] private int grappableLayerNumber = 9;
+    [SerializeField] private int grappableLayerNumber = 10;
 
     [Header("Main Camera:")]
     public Camera m_camera;
@@ -27,7 +27,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     [Header("Distance:")]
     [SerializeField] private bool hasMaxDistance = false;
-    [SerializeField] private float maxDistnace = 20;
+    [SerializeField] private float maxDistance = 20;
 
     private enum LaunchType
     {
@@ -57,14 +57,16 @@ public class Tutorial_GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            Debug.Log("grap");
             SetGrapplePoint();
         }
-        else if (Input.GetKey(KeyCode.Mouse0))
+        else if (Input.GetKey(KeyCode.Mouse1))
         {
             if (grappleRope.enabled)
             {
+                Debug.Log("a lacher le grap ");
                 RotateGun(grapplePoint, false);
             }
             else
@@ -83,11 +85,12 @@ public class Tutorial_GrapplingGun : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             m_rigidbody.gravityScale = 1;
+            Debug.Log("ne grap plus");
         }
         else
         {
@@ -119,7 +122,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
             RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
             if (_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll)
             {
-                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
+                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance)
                 {
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
@@ -174,7 +177,7 @@ public class Tutorial_GrapplingGun : MonoBehaviour
         if (firePoint != null && hasMaxDistance)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(firePoint.position, maxDistnace);
+            Gizmos.DrawWireSphere(firePoint.position, maxDistance);
         }
     }
 

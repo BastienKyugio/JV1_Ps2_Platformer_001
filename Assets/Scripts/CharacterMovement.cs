@@ -52,10 +52,6 @@ public class CharacterMovement : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick &&  !isGrounded)
-        {
-            Grap();
-        }
 
 
         Flip(rb.velocity.x);
@@ -90,12 +86,6 @@ public class CharacterMovement : MonoBehaviour
     {
         Instantiate(darts, firingPoint1.position, firingPoint1.rotation);
     }
-    private void Grap()
-    {
-        //tirer une flechette, si elle touche une accroche alors le joueur est attiré jusque la-bas
-
-    }
-
 
     void Flip(float _velocity)
     {
