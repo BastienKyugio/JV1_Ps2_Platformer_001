@@ -57,7 +57,7 @@ public class GrapplingGun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && CharacterMovement.instance.rangeWeaponPick)
         {
             Debug.Log("grap");
             SetGrapplePoint();
