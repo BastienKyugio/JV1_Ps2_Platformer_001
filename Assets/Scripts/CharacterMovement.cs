@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask collisionLayers;
     public CapsuleCollider2D playercollider;
-    //public Animator animator;
+    public Animator animator;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
     public SpriteRenderer spriteRenderer;
@@ -57,7 +57,7 @@ public class CharacterMovement : MonoBehaviour
         Flip(rb.velocity.x);
 
         float characterVelocity = Mathf.Abs(rb.velocity.x);
-        // animator.SetFloat("Speed", characterVelocity);
+        animator.SetFloat("Speed", characterVelocity);
 
 
     }
@@ -91,11 +91,11 @@ public class CharacterMovement : MonoBehaviour
     {
         if (_velocity > 0.1f)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
         else if (_velocity < -0.1f)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
     }
     private void OnDrawGizmos()
