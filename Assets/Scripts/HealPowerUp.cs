@@ -8,7 +8,7 @@ public class HealPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("player"))
         {
             if (PlayerHealth.instance.currentHealth != PlayerHealth.instance.maxHealth)
             {
