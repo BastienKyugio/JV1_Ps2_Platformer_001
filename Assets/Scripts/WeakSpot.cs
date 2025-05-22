@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weakspot : MonoBehaviour
 {
     public GameObject objectToDestroy;
+    public CapsuleCollider2D collide;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
