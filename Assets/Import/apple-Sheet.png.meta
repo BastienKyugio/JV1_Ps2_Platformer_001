@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b128ed3277a7814d9896ec8e2ddc4fa
+guid: 9fa4844fbe9f80c46b1ce9dc8d349976
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: persoRunaseprite_0
+      name: apple-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18e17373fe753a44eaadc69d649d1e40
-      internalID: -1053707134
+      spriteID: d7ac17724780ef0498a6ff9c18ab8afa
+      internalID: -1822368703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: persoRunaseprite_1
+      name: apple-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70438f5d6946994fb20855ff5d6b93d
+      internalID: 180830383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03f932e701ba5284d8be62f4abd6d552
-      internalID: -1205066829
+      spriteID: a48d24a5c66910d4ba7bbbe6465b723c
+      internalID: 1223221949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: persoRunaseprite_2
+      name: apple-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97ea8017e0ea304981257cb1264cefd
+      internalID: 820137337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: apple-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d56a869a62acd64b8820df4e161ce74
-      internalID: -1266946992
+      spriteID: 2d598db4164b20548a3df193f8093363
+      internalID: -123876812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: persoRunaseprite_3
+      name: apple-Sheet_5
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,113 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ab9d9c2be784644a42c66bed827b36
-      internalID: 1890276690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: persoRunaseprite_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60db3a33f2d2dc14580a4c846355afc5
-      internalID: -3712514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: persoRunaseprite_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba8c530dcd8af4841a6460fd722f74d5
-      internalID: 435095513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: persoRunaseprite_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41cc69ebd31e19848981d453c0322dd5
-      internalID: 1316237653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: persoRunaseprite_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ad6d6391bc229e43a9c7e93c7587b8b
-      internalID: 751856767
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: persoRunaseprite_8
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b369849a0f67de54d8006322b02d0d87
-      internalID: -1848292611
+      spriteID: 7914295c370c02f46b0ac17abac798d3
+      internalID: -236999971
       vertices: []
       indices: 
       edges: []
@@ -322,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      persoRunaseprite_0: -1053707134
-      persoRunaseprite_1: -1205066829
-      persoRunaseprite_2: -1266946992
-      persoRunaseprite_3: 1890276690
-      persoRunaseprite_4: -3712514
-      persoRunaseprite_5: 435095513
-      persoRunaseprite_6: 1316237653
-      persoRunaseprite_7: 751856767
-      persoRunaseprite_8: -1848292611
+      apple-Sheet_0: -1822368703
+      apple-Sheet_1: 180830383
+      apple-Sheet_2: 1223221949
+      apple-Sheet_3: 820137337
+      apple-Sheet_4: -123876812
+      apple-Sheet_5: -236999971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
