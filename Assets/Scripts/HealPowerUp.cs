@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealPowerUp : MonoBehaviour
 {
     public int healthPoint;
+    public AudioClip sound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +13,7 @@ public class HealPowerUp : MonoBehaviour
         {
             if (PlayerHealth.instance.currentHealth != PlayerHealth.instance.maxHealth)
             {
+                AudioManager.instance.PlayClipAt(sound, transform.position);
                 PlayerHealth.instance.HealPlayer(healthPoint);
                 Destroy(gameObject);
 

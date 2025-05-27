@@ -15,6 +15,8 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public SpriteRenderer spriteRenderer;
     private float horizontalMovement;
+    private bool isFacingLeft = true;
+    [SerializeField] private LayerMask groundLayer;
 
     //Bullet Variables
     [SerializeField] private GameObject darts;
@@ -23,6 +25,10 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private float shootPos;
     public bool rangeWeaponPick = false;
+
+    public AudioClip manJumpingSound;
+    public AudioClip jumpOnGrass;
+    public AudioClip runOnGrass;
 
     public static CharacterMovement instance;
 
@@ -41,61 +47,52 @@ public class CharacterMovement : MonoBehaviour
     {
 
 
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            isJumping = true;
+            AudioManager.instance.PlayClipAt(manJumpingSound, transform.position);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            AudioManager.instance.PlayClipAt(jumpOnGrass, transform.position);
         }
+
+
+        Flip();
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick && isGrounded)
         {
             Shoot();
+            Debug.Log("appuye tireer ");
         }
 
-
-        Flip(rb.velocity.x);
 
         float characterVelocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", characterVelocity);
 
 
     }
-    void FixedUpdate()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
-        MovePlayer(horizontalMovement);
 
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
     }
-    void MovePlayer(float _horizontalMovement)
+    private bool IsGrounded()
     {
-
-  
-        Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-
-        if (isJumping)
-        {
-            rb.AddForce(new Vector2(0f, jumpForce));
-            isJumping = false;
-        }
-
-
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
     private void Shoot()
     {
         Instantiate(darts, firingPoint1.position, firingPoint1.rotation);
+        Debug.Log("tireer ");
     }
 
-    void Flip(float _velocity)
+    private void Flip()
     {
-        if (_velocity > 0.1f)
+        if (!isFacingLeft && horizontalMovement < 0f || isFacingLeft && horizontalMovement > 0f)
         {
-            spriteRenderer.flipX = true;
-        }
-        else if (_velocity < -0.1f)
-        {
-            spriteRenderer.flipX = false;
+            isFacingLeft = !isFacingLeft;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
     private void OnDrawGizmos()

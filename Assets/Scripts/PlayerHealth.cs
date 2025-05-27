@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     public GameObject spawn;
     public GameObject player;
 
+    public AudioClip hitSound;
+
 
     public static PlayerHealth instance;
 
@@ -65,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvincible)
         {
+            AudioManager.instance.PlayClipAt(hitSound, transform.position);
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
 

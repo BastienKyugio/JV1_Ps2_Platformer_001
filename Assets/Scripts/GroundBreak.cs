@@ -6,6 +6,7 @@ public class GroundBreak : MonoBehaviour
 {
     public GameObject objectToDestroy;
     public BoxCollider2D _collider;
+    public AudioClip sound;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -18,6 +19,7 @@ public class GroundBreak : MonoBehaviour
     private IEnumerator Breaking()
     {
         yield return new WaitForSeconds(1.5f);
+        AudioManager.instance.PlayClipAt(sound, transform.position);
         objectToDestroy.SetActive(false);
         
     }

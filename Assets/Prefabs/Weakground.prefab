@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 609379570464405954}
   _collider: {fileID: 6684230789381277995}
+  sound: {fileID: 8300000, guid: 162cd1450090ea048bcbb5f65fce7597, type: 3}
 --- !u!1 &1659128207500148234
 GameObject:
   m_ObjectHideFlags: 0

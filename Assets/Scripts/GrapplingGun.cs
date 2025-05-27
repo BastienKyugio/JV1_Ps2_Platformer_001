@@ -38,7 +38,7 @@ public class GrapplingGun : MonoBehaviour
     [Header("Launching:")]
     [SerializeField] private bool launchToPoint = true;
     [SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
-    [SerializeField] private float launchSpeed = 1;
+    [SerializeField] private float launchSpeed = 0.5f;
 
     [Header("No Launch To Point")]
     [SerializeField] private bool autoConfigureDistance = false;

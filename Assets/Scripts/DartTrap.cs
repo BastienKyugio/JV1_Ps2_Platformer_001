@@ -7,6 +7,7 @@ public class DartTrap : MonoBehaviour
     [SerializeField] private GameObject projectiles;
     [SerializeField] private Transform firingPoint;
     [SerializeField] private float shootPos;
+    public AudioClip sound;
     //[Range(0.1f, 1f)]
     //[SerializeField] private float firerate = 1f;
 
@@ -21,6 +22,7 @@ public class DartTrap : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.instance.PlayClipAt(sound, transform.position);
         Instantiate(projectiles, firingPoint.position, firingPoint.rotation);
     }
 }
