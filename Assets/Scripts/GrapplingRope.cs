@@ -97,18 +97,23 @@ public class GrapplingRope : MonoBehaviour
     {
         for (int i = 0; i < percision; i++)
         {
+
             float delta = (float)i / ((float)percision - 1f);
             Vector2 offset = Vector2.Perpendicular(grapplingGun.grappleDistanceVector).normalized * ropeAnimationCurve.Evaluate(delta) * waveSize;
             Vector2 targetPosition = Vector2.Lerp(grapplingGun.firePoint.position, grapplingGun.grapplePoint, delta) + offset;
             Vector2 currentPosition = Vector2.Lerp(grapplingGun.firePoint.position, targetPosition, ropeProgressionCurve.Evaluate(moveTime) * ropeProgressionSpeed);
+            Vector3 point = new Vector3(currentPosition.x, currentPosition.y, -1f); // Z proche caméra
+            m_lineRenderer.SetPosition(i, point);
 
             m_lineRenderer.SetPosition(i, currentPosition);
+
+            Debug.DrawLine(currentPosition, currentPosition + Vector2.up * 0.1f, Color.red, 0.1f); // ? Voir les points
         }
     }
 
     void DrawRopeNoWaves()
     {
-        m_lineRenderer.SetPosition(0, grapplingGun.firePoint.position);
-        m_lineRenderer.SetPosition(1, grapplingGun.grapplePoint);
+        m_lineRenderer.SetPosition(0, new Vector3(grapplingGun.firePoint.position.x, grapplingGun.firePoint.position.y, -1f));
+        m_lineRenderer.SetPosition(1, new Vector3(grapplingGun.grapplePoint.x, grapplingGun.grapplePoint.y, -1f));
     }
 }

@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public SpriteRenderer spriteRenderer;
     private float horizontalMovement;
-    private bool isFacingLeft = true;
+    private bool isFacingRight = false;
     [SerializeField] private LayerMask groundLayer;
 
     //Bullet Variables
@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
     }
     void Update()
     {
-
+        
 
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -58,7 +58,7 @@ public class CharacterMovement : MonoBehaviour
 
         Flip();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && rangeWeaponPick && IsGrounded())
         {
             Shoot();
             Debug.Log("appuye tireer ");
@@ -66,15 +66,35 @@ public class CharacterMovement : MonoBehaviour
 
 
         float characterVelocity = Mathf.Abs(rb.velocity.x);
-        animator.SetFloat("Speed", characterVelocity);
+
+        if (IsGrounded())
+        {
+            animator.SetFloat("Speed", characterVelocity);
+        }
+        else if (!IsGrounded())
+        {
+            characterVelocity = 0f;
+            animator.SetFloat("Speed", characterVelocity);
+        }
+
+        if (IsGrounded() && characterVelocity > 0)
+        {
+            Debug.Log("skibidi");
+            PlaySoundRunning();
+
+        }
 
 
     }
-
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
     }
+    private void PlaySoundRunning()
+    {
+        //AudioManager.instance.PlayClipAt(runOnGrass, transform.position);
+    }
+
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -87,9 +107,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (!isFacingLeft && horizontalMovement < 0f || isFacingLeft && horizontalMovement > 0f)
+        if (isFacingRight && horizontalMovement < 0f || !isFacingRight && horizontalMovement > 0f)
         {
-            isFacingLeft = !isFacingLeft;
+            isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;

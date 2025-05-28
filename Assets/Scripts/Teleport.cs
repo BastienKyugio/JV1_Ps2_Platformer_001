@@ -7,6 +7,7 @@ public class Teleport : MonoBehaviour
     public GameObject posTteleport;
     public GameObject player;
     public bool isInRange = false;
+    public AudioClip tpSound;
 
     private void Update()
     {
@@ -32,6 +33,7 @@ public class Teleport : MonoBehaviour
     }
     private void Tp()
     {
+        AudioManager.instance.PlayClipAt(tpSound, transform.position);
         player.transform.position = posTteleport.transform.position;
     }
 }

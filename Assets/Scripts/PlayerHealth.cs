@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject player;
 
     public AudioClip hitSound;
+    public AudioClip dieSound;
 
 
     public static PlayerHealth instance;
@@ -85,6 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.instance.PlayClipAt(dieSound, transform.position);
         CharacterMovement.instance.enabled = false;
         CharacterMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;
         CharacterMovement.instance.rb.velocity = Vector3.zero;
