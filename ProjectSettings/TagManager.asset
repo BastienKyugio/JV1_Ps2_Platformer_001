@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - projectiles
   - Enemy
+  - InteractUI
   layers:
   - Default
   - TransparentFX

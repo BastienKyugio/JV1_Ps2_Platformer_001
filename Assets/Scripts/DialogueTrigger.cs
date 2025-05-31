@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("player"))
         {
             isInRange = true;
             interactUI.enabled = true;
@@ -34,7 +34,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("player"))
         {
             isInRange = false;
             interactUI.enabled = false;
