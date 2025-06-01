@@ -22,7 +22,6 @@ public class LoadSpecificScene : MonoBehaviour
     }
     public IEnumerator loadNextScene()
     {
-        LoadAndSaveData.instance.SaveData();
         fadeSystem.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(sceneName);

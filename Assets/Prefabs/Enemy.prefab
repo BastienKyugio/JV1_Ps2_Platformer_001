@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2648192594810162820}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.69, y: 0, z: 0}
+  m_LocalPosition: {x: -22.48, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4325525258371820822}
   - component: {fileID: 495106662982473697}
   - component: {fileID: 192572977633080964}
+  - component: {fileID: 6858208782942188835}
   m_Layer: 6
   m_Name: EnemySprite
   m_TagString: Enemy
@@ -126,8 +127,8 @@ Transform:
   m_GameObject: {fileID: 8074562041333110578}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.04, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -13.04, y: 0.31, z: 0}
+  m_LocalScale: {x: 1.428758, y: 1.428758, z: 1.428758}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1398971020756672968}
@@ -173,8 +174,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7264151, g: 0.058250275, b: 0.058250275, a: 1}
+  m_Sprite: {fileID: 1047915010, guid: 22c93aa8640ad1d4883a32acf9355e60, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
   - {fileID: 1214834557474380541}
   damageOnCollision: 20
   graphics: {fileID: 2054171471071087732}
+  animator: {fileID: 0}
 --- !u!61 &4325525258371820822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,7 +240,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -287,4 +289,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 6990942544146094519}
-  collide: {fileID: 0}
+--- !u!95 &6858208782942188835
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074562041333110578}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9082e9e40bca6ba44ae5efacc86d5264, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

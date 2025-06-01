@@ -5,6 +5,7 @@ public class EnemyFollow : MonoBehaviour
     public float speed = 0.5f;
     public Transform player;
     public BoxCollider2D targetCollider;
+    public Animator animator;
 
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -23,7 +24,7 @@ public class EnemyFollow : MonoBehaviour
             }
             else
             {
-                //hit
+                animator.SetTrigger("isAttacking");
             }
         }
     }

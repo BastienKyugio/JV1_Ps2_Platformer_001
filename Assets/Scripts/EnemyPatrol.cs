@@ -10,6 +10,7 @@ public class EnemyPatrol : MonoBehaviour
     public SpriteRenderer graphics;
     private Transform target;
     private int destPoint = 0;
+    public Animator animator;
 
 
     
@@ -35,6 +36,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (collision.transform.CompareTag("player"))
         {
+            animator.SetTrigger("isAttacking");
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damageOnCollision);
         }

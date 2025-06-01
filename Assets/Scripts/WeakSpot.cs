@@ -3,7 +3,7 @@ using UnityEngine;
 public class Weakspot : MonoBehaviour
 {
     public GameObject objectToDestroy;
-    public CapsuleCollider2D collide;
+    private int hp = 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,13 +13,15 @@ public class Weakspot : MonoBehaviour
             DamageDistance();
         }
     }
-    public void DamageMelee()
-    {
-        Destroy(objectToDestroy);
-    }
     public void DamageDistance()
     {
-        Debug.Log("detruit");
-        Destroy(objectToDestroy);
+        if (hp <= 0)
+        {
+            Destroy(objectToDestroy);
+        }
+        else
+        {
+            hp--;
+        }
     }
 }
